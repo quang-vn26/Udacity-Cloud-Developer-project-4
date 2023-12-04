@@ -22,6 +22,7 @@ export const handler = middy()
     const updatedTodo = JSON.parse(event.body);
     const userId = getUserId(event);
 
+    // update todo
     await updateTodo(userId, todoId, updatedTodo);
 
     return {

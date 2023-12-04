@@ -22,6 +22,7 @@ export const handler = middy()
     const todoId = event.pathParameters.todoId;
     const userId = getUserId(event);
 
+    // wait delete todo
     await deleteTodo(todoId, userId);
 
     return {

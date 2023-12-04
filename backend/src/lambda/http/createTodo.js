@@ -6,7 +6,7 @@ import { createLogger } from '../../utils/logger.mjs';
 import { createTodo } from '../../businessLogic/todos.mjs';
 import { getUserId } from '../utils.mjs';
 
-const logger = createLogger('Todos logger createTodos');
+const logger = createLogger('Todos logger createTodo');
 
 export const handler = middy()
   .use(httpErrorHandler())
@@ -26,6 +26,8 @@ export const handler = middy()
     // Write your logic here
     
     const userId = getUserId(event);
+
+    // wait for create new item
     const newIitem = await createTodo(newTodo, userId);
 
     return {

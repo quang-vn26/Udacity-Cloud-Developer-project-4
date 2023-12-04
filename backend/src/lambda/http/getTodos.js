@@ -18,6 +18,8 @@ export const handler = middy()
   .handler(async (event) => {
     logger.info('get todo item');
     const userId = getUserId(event);
+
+    //wait for get items todo
     const todoItems = await getTodos(userId);
 
     return {

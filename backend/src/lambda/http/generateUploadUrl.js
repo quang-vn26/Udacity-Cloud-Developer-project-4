@@ -22,7 +22,7 @@ export const handler = middy()
 
     const userId = getUserId(event);
 
-
+    // wait for update data and upload file
     const uploadUrl = await createAttachmentPresignedUrl(todoId,userId);
 
     return {

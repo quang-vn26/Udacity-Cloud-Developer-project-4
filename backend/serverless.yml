@@ -32,15 +32,6 @@ provider:
   logs: 
     restApi: true
 
-  iam:
-    role:
-      statements:
-        - Effect: Allow
-          Action:
-            - xray:PutTelemetryRecords
-            - xray:PutTraceSegments
-          Resource: "*"
-
 custom:
   documentation:
     api:
@@ -81,6 +72,8 @@ functions:
     iamRoleStatements:
       - Effect: Allow
         Action:
+          - xray:PutTelemetryRecords
+          - xray:PutTraceSegments
           - dynamodb:Query
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}
       - Effect: Allow
